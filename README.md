@@ -5,5 +5,5 @@ This project is based on [The Rust Book: Section 12](https://doc.rust-lang.org/b
 ## To run the application
 
 ``` bash
-cargo run -- searchstring example-filename.txt
+cargo run -- searchstring poem.txt
 ```
