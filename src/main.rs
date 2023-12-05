@@ -3,9 +3,9 @@ use std::fs;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let (query, file_path) = parse_config(&args);
+    let config: Config = parse_config(&args);
 
-    match fs::read_to_string(file_path) {
+    match fs::read_to_string(config.file_path) {
         Ok(contents) => {
             println!("With text: \n{contents}");
         }
@@ -13,18 +13,21 @@ fn main() {
     };
 }
 
-fn parse_config(args: &[String]) -> (&str, &str) {
-    let file_path = &args[2];
+struct Config {
+    query: String,
+    file_path: String,
+}
 
-    let query = match &args.get(1) {
-        Some(value) => *value,
+fn parse_config(args: &[String]) -> Config {
+    let query: String = match &args.get(1) {
+        Some(value) => value.to_string(),
         None => panic!("No search query provided."),
     };
 
-    let file_path = match &args.get(2) {
-        Some(value) => *value,
+    let file_path: String = match &args.get(2) {
+        Some(value) => value.to_string(),
         None => panic!("No file path provided."),
     };
 
-    return (query, file_path);
+    return Config { query, file_path };
 }
