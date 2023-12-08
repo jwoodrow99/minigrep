@@ -5,5 +5,7 @@ This project is based on [The Rust Book: Section 12](https://doc.rust-lang.org/b
 ## To run the application
 
 ``` bash
-cargo run -- searchstring poem.txt
+cargo run -- frog poem.txt              # Single match
+cargo run -- body poem.txt              # Multiple match
+cargo run -- monomorphization poem.txt  # No match
 ```
