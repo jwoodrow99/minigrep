@@ -8,4 +8,6 @@ This project is based on [The Rust Book: Section 12](https://doc.rust-lang.org/b
 cargo run -- frog poem.txt              # Single match
 cargo run -- body poem.txt              # Multiple match
 cargo run -- monomorphization poem.txt  # No match
+
+IGNORE_CASE=1 cargo run -- to poem.txt  # Case insensitive match
 ```
