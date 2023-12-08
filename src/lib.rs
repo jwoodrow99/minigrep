@@ -10,6 +10,10 @@ pub struct Config {
 
 impl Config {
     pub fn build(args: &[String]) -> Result<Config, &'static str> {
+        if 3 > args.len() {
+            return Err("Not enough arguments");
+        }
+
         let query: String = match &args.get(1) {
             Some(value) => value.to_string(),
             None => return Err("No search query provided."),

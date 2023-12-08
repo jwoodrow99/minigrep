@@ -10,4 +10,6 @@ cargo run -- body poem.txt              # Multiple match
 cargo run -- monomorphization poem.txt  # No match
 
 IGNORE_CASE=1 cargo run -- to poem.txt  # Case insensitive match
+
+cargo run -- to poem.txt > output.txt   # Print results to file
 ```
